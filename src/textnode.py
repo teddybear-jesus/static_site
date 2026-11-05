@@ -49,5 +49,3 @@ def text_node_to_html_node(text_node: TextNode) -> LeafNode:
             )
         case _:
             raise Exception()  # noqa: TRY002
-
-
