@@ -1,5 +1,5 @@
-class HTMLNode():
-    def __init__(self, tag: str | None = None, value: str| None = None, children: list[HTMLNode]| None = None, props: dict| None = None):
+class HTMLNode:
+    def __init__(self, tag: str | None = None, value: str| None = None, children: list["HTMLNode"]| None = None, props: dict| None = None):
         self.tag: str = tag
         self.value: str = value
         self.children: list[HTMLNode] = children
