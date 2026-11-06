@@ -3,12 +3,12 @@ import unittest
 from inline_markdown import (
     extract_markdown_images,
     extract_markdown_links,
-    markdown_to_blocks,
     split_nodes_delimiter,
     split_nodes_image,
     split_nodes_link,
     text_to_textnodes,
 )
+from markdown_blocks import markdown_to_blocks
 from textnode import TextNode, TextType
 
 
