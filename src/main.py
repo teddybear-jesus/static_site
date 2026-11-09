@@ -1,9 +1,29 @@
-from inline_markdown import text_to_textnodes
+from pathlib import Path
+
+
+def clean_public():
+    public = list(Path("public").rglob("*"))
+    for i in reversed(public):
+        print(f"Deleting: {i}")
+        if Path.is_file(i):
+            Path.unlink(i)
+        else:
+            Path.rmdir(i)
+    check = list(Path("public").rglob("*"))
+    if len(check) > 0:
+        clean_public()
+    else:
+        print("public clean")
+
+def copy_static():
+    static = Path("static/")
+    for f in static.glob("*"):
+        f.copy_into(Path("public"))
+        print(f"Copying {f.as_posix()}")
+
 
 
 def main():
-    text = r"This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-    nodes = text_to_textnodes(text)
-    for node in nodes:
-        print(node)
+    clean_public()
+    copy_static()
 main()
