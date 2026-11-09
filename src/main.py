@@ -33,6 +33,7 @@ def main():
         basepath = sys.argv[1]
     else:
         basepath = "/"
+    print(basepath)
     clean_public()
     copy_static()
     generate_page_recursive("content", "template.html", "docs", basepath)

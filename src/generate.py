@@ -22,7 +22,7 @@ def generate_page(source, template, dest, basepath):
     html_template = html_template.replace(r"{{ Title }}", title)
     html_template =  html_template.replace(r"{{ Content }}", html)
     html_template =  html_template.replace(r'href="/', f'href="{basepath}')
-    html_template =  html_template.replace(r'src"/', f'src="{basepath}')
+    html_template =  html_template.replace(r'src="/', f'src="{basepath}')
     Path(dest).parent.mkdir(parents=True, exist_ok=True)
     with open(dest, "w") as d:
         d.write(html_template)
