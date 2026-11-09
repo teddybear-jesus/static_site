@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from generate import generate_page_recursive
+
 
 def clean_public():
     public = list(Path("public").rglob("*"))
@@ -26,4 +28,5 @@ def copy_static():
 def main():
     clean_public()
     copy_static()
+    generate_page_recursive("content", "template.html", "public")
 main()
